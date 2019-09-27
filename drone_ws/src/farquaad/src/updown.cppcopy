@@ -1,0 +1,45 @@
+#include <iostream>
+
+#include "ros/ros.h"
+#include "std_msgs/String.h"
+#include "std_msgs/Empty.h"
+#include "ardrone_autonomy/Navdata.h"
+
+
+int state = 0;
+
+void dataCB( const ardrone_autonomy::Navdata& msg)
+{
+  ROS_INFO( "State: %d" , msg.state);
+  state = msg.state;
+}
+
+
+int main(int argc, char** argv)
+{
+  ros::init(argc, argv, "info");
+  ros::NodeHandle n;
+  
+  ros::Subscriber s = n.subscribe("ardrone/navdata", 1000, dataCB);
+
+  ros::Publisher toff = n.advertise<std_msgs::Empty>("ardrone/takeoff", 1000);
+  ros::Publisher land = n.advertise<std_msgs::Empty>("ardrone/land", 1000);
+
+  ros::Rate l_r(0.5);
+
+  while (ros::ok())
+  {
+    if (state == 0 || state == 1 || state == 2 || state == 6)
+    {
+      toff.publish(std_msgs::Empty());
+    }
+    else if ( (3<=state && 5 <= state ) || state == 8 || state == 7)
+    {
+      land.publish(std_msgs::Empty());
+    }
+    ros::spin();
+  }
+
+}
+
+

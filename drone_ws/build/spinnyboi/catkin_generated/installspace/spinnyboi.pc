@@ -1,0 +1,8 @@
+prefix=/home/eric/drone_ws/install
+
+Name: spinnyboi
+Description: Description of spinnyboi
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/eric/drone_ws/install/lib 
+Requires: 

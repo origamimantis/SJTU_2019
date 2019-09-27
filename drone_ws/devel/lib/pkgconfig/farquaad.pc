@@ -1,0 +1,8 @@
+prefix=/home/eric/drone_ws/devel
+
+Name: farquaad
+Description: Description of farquaad
+Version: 0.0.0
+Cflags: 
+Libs: -L/home/eric/drone_ws/devel/lib 
+Requires: 

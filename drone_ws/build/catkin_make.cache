@@ -1,0 +1,2 @@
+farquaad
+-DCATKIN_DEVEL_PREFIX=/home/eric/drone_ws/devel -DCMAKE_INSTALL_PREFIX=/home/eric/drone_ws/install -G Unix Makefiles
