@@ -1,0 +1,17 @@
+g++ main.cpp -I/home/eric/opencv/include/opencv4/ -L/home/eric/opencv/lib -lopencv_highgui -lopencv_imgcodecs -lopencv_core
+
+$ g++ main.cpp
+      -I(path to library)/include
+      -L(path to library)/lib
+      -lthing1 -lthing2          <-- all the ... used in #include <libraryname/... in main.cpp
+
+** If getting "undefined reference to '...' **
+
+~$ cd /etc/ld.so.conf.d
+/etc/ld.so.conf.d$ sudo vi (*libname).conf
+____________________
+||path/to/library   <-- (libname).conf
+||__________________
+
+/etc/ld.so.conf.d$ sudo ldconfig
+

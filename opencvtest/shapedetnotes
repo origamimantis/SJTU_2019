@@ -1,0 +1,2 @@
+matchtemplate - apply black/white template to thresholded image from current program,
+		track movement with cv::Point(MatchLoc.x+templ.cols/2, MatchLoc.y+templ.rows/2) (see clark's example)
